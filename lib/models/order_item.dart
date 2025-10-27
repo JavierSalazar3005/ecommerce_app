@@ -14,10 +14,10 @@ class OrderItem {
   });
 
   Map<String, dynamic> toJson() => {
-    "productId": productId,
-    "productName": productName,
-    "quantity": quantity,
-    "unitPrice": unitPrice,
-    "companyId": companyId,
-  };
+        "productId": productId,
+        "productName": productName,
+        "quantity": quantity,
+        "unitPrice": unitPrice,
+        "companyId": companyId,
+      };
 }

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'config/theme.dart';
+import 'routes.dart';
+import 'state/cart_state.dart';
 
 void main() {
   runApp(const EcommerceApp());
@@ -9,12 +13,15 @@ class EcommerceApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'E-Commerce UPSA',
-      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.blue),
-      home: const Placeholder(), // luego reemplazamos por LoginScreen()
-      debugShowCheckedModeBanner: false,
+    return ChangeNotifierProvider(
+      create: (_) => CartState(),
+      child: MaterialApp(
+        title: 'E-Commerce UPSA',
+        theme: AppTheme.light,
+        initialRoute: RouteNames.login,
+        onGenerateRoute: AppRouter.onGenerateRoute,
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }
-
