@@ -1,0 +1,34 @@
+import 'order_item.dart';
+
+class Order {
+  final int id;
+  final int customerId;
+  final double total;
+  final String status;
+  final DateTime createdAt;
+  final List<OrderItem> items;
+
+  Order({
+    required this.id,
+    required this.customerId,
+    required this.total,
+    required this.status,
+    required this.createdAt,
+    required this.items,
+  });
+
+  factory Order.fromJson(Map<String, dynamic> j) => Order(
+    id: j["id"],
+    customerId: j["customerId"],
+    total: (j["total"] as num).toDouble(),
+    status: j["status"],
+    createdAt: DateTime.parse(j["createdAt"]),
+    items: (j["items"] as List).map((e) => OrderItem(
+      productId: e["productId"],
+      productName: e["productName"] ?? "",
+      quantity: e["quantity"],
+      unitPrice: (e["unitPrice"] as num).toDouble(),
+      companyId: e["companyId"],
+    )).toList(),
+  );
+}
