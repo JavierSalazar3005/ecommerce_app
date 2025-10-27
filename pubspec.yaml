@@ -1,32 +1,22 @@
 name: ecommerce_app
-description: Aplicación Flutter para el simulacro de E-Commerce UPSA (Frontend conectado a ASP.NET Core Backend)
-
-# Versión de la app
-version: 1.0.0+1
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
 
 environment:
-  sdk: '>=3.4.0 <4.0.0'
+  sdk: ^3.9.2
 
 dependencies:
   flutter:
     sdk: flutter
-
-  # 📦 Paquetes principales
-  http: ^1.2.2                  # Para peticiones REST al backend
-  flutter_secure_storage: ^9.2.2 # Para guardar el token JWT de forma segura
-  intl: ^0.19.0                 # Para formatear precios y fechas
-
-  # ✅ Íconos y Material Design
-  cupertino_icons: ^1.0.6
+  flutter_secure_storage: ^9.2.4
+  http: ^1.5.0
+  provider: ^6.1.5+1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
 flutter:
   uses-material-design: true
-
-  # Si luego agregas imágenes o íconos personalizados:
-  # assets:
-  #   - assets/images/

@@ -6,4 +6,12 @@ class ApiConfig {
 
   /// Timeout por defecto en milisegundos para requests.
   static const int defaultTimeoutMs = 15000;
+
+  /// Construye la URL completa combinando la baseUrl con el path proporcionado
+  static String url(String path) {
+    if (path.startsWith('/')) {
+      path = path.substring(1);
+    }
+    return '$baseUrl/$path'.replaceAll(RegExp(r'([^:])//+'), r'$1/');
+  }
 }

@@ -13,28 +13,30 @@ class ApiService {
   }
 
   Future<http.Response> get(String path) async {
+    final uri = Uri.parse(ApiConfig.url(path));
     return http
-        .get(Uri.parse("${ApiConfig.baseUrl}$path"), headers: await _headers())
+        .get(uri, headers: await _headers())
         .timeout(const Duration(milliseconds: ApiConfig.defaultTimeoutMs));
   }
 
   Future<http.Response> post(String path, Map<String, dynamic> body) async {
+    final uri = Uri.parse(ApiConfig.url(path));
     return http
-        .post(Uri.parse("${ApiConfig.baseUrl}$path"),
-            headers: await _headers(), body: jsonEncode(body))
+        .post(uri, headers: await _headers(), body: jsonEncode(body))
         .timeout(const Duration(milliseconds: ApiConfig.defaultTimeoutMs));
   }
 
   Future<http.Response> put(String path, Map<String, dynamic> body) async {
+    final uri = Uri.parse(ApiConfig.url(path));
     return http
-        .put(Uri.parse("${ApiConfig.baseUrl}$path"),
-            headers: await _headers(), body: jsonEncode(body))
+        .put(uri, headers: await _headers(), body: jsonEncode(body))
         .timeout(const Duration(milliseconds: ApiConfig.defaultTimeoutMs));
   }
 
   Future<http.Response> delete(String path) async {
+    final uri = Uri.parse(ApiConfig.url(path));
     return http
-        .delete(Uri.parse("${ApiConfig.baseUrl}$path"), headers: await _headers())
+        .delete(uri, headers: await _headers())
         .timeout(const Duration(milliseconds: ApiConfig.defaultTimeoutMs));
   }
 }
